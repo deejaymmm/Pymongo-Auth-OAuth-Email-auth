@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">  <!--  используются возможности шаблонизатора Jinja-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  <!--  Bootstrap-стили с сайта https://www.bootstrapcdn.com-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+  <title>{% block title %}{% endblock %}</title>  <!--  место для подстановки кода-->
+</head>
+<body>
+    <div class="container py-3">
+      <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <span class="fs-4">Pymongo Auth & OAuth & Email auth</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/">Home</a>
+          {% if is_logged %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/logout">Logout</a>
+          {% else %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/register">Register</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/login">Login</a>
+          {% endif %}
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/docs">Docs</a>
+          <a class="btn btn btn-success" href="/create_doc">Create doc</a>
+        </nav>
+      </header>
+    </div>
+  {% block body %}{% endblock %}  <!--  место для подстановки кода-->
+</body>
+</html>

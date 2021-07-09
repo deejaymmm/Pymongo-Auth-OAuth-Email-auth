@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+register
+{% endblock %}
+
+{% block body %}
+{% if message %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">{{ message }}</h1>
+</div>
+{% endif %}
+
+<div class="container">
+    <h3>Register</h3>
+    <form method="post">
+<!--        обработка на этой странице, поэтому action не прописывается-->
+        <input type="text" name="user" id="name" class="form-control" placeholder="Enter your name"><br>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email "><br>
+        <input type="password" name="password1" id="password1" class="form-control" placeholder="Enter your password"><br>
+        <input type="password" name="password2" id="password2" class="form-control" placeholder="Reenter your password"><br>
+        <input type="submit" class="btn btn-primary" value="Register">
+    </form>
+</div>
+{% endblock %}

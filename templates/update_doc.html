@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+update_doc
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3>Update a document</h3>
+    <form method="post">
+<!--      обработка на этой странице, поэтому action не прописывается-->
+        <input type="text" name="title" id="title" class="form-control" value="{{ doc.title }}"><br>
+        <input type="text" name="author" id="author" class="form-control" value="{{ doc.author }}"><br>
+        <input type="number" name="year" id="year" class="form-control" value="{{ doc.year }}"><br>
+        <input type="submit" class="btn btn-success" value="Update">
+    </form>
+</div>
+{% endblock %}

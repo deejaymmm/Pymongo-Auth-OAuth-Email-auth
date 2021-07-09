@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+create_doc
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3>Create a document</h3>
+    <form method="post">
+<!--        обработка на этой странице, поэтому action не прописывается-->
+        <input type="text" name="title" id="title" class="form-control" placeholder="Enter the title of the book "><br>
+        <input type="text" name="author" id="author" class="form-control" placeholder="Enter the author of the book"><br>
+        <input type="number" name="year" id="year" class="form-control" placeholder="Enter the year of publication of the book"><br>
+        <input type="submit" class="btn btn-success" value="Create">
+    </form>
+</div>
+{% endblock %}

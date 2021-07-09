@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+docs
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+<!--    jinja-syntax cycle-->
+    {% if docs_col|length > 0 %}
+<!--    если есть документы в коллекции-->
+        <h3>All documents in the collection:</h3>
+        {% for el in docs_col %}
+        <div class="alert alert-info">
+            <h6>
+                <span class="me-2"><a href="/docs/{{ el._id }}/update" class="btn btn-warning">Update</a></span>
+                <span class="me-2"><a href="/docs/{{ el._id }}/delete" class="btn btn-danger">Delete</a></span>
+                <span class="me-2">_id: {{ el._id }}.</span>
+                <span class="me-2">Title: {{ el.title }}.</span>
+                <span class="me-2">Author: {{ el.author }}.</span>
+                <span class="me-2">Year: {{ el.year }}.</span>
+            </h6>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h3>There are no documents in the collection yet.</h3>
+    {% endif %}
+</div>
+{% endblock %}

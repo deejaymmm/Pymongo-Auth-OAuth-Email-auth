@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+login
+{% endblock %}
+
+{% block body %}
+{% if message %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">{{ message }}</h1>
+</div>
+{% endif %}
+
+<div class="container">
+    <h3>Login</h3>
+    <form method="post">
+<!--        обработка на этой странице, поэтому action не прописывается-->
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email "><br>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password"><br>
+        <input type="submit" class="me-3 btn btn-primary" value="Login">
+        <a class="me-3 btn btn-secondary" href="/login_google">Login with Google</a>
+        <a class="me-3 btn btn-info" href="/email_check">Login with email authentication</a>
+    </form>
+</div>
+{% endblock %}
